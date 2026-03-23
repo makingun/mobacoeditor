@@ -1,0 +1,65 @@
+<head>
+    <title>Monaco Editor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+
+<body>
+    <div id="app">
+        <div id="toolbar">
+            <li class="dropdown">
+                <button class="dropdown-toggle">File</button>
+                <ul class="dropdown-menu">
+                    <li><button onclick="openProject()">
+                        <span>Open Project</span>
+                        <span class="shortcut">Ctrl+O</span>
+                    </button></li>
+                    <li><button onclick="saveProject(true)">
+                        <span>Save Project</span>
+                        <span class="shortcut">Ctrl+S</span>
+                    </button></li>
+                    <li><button onclick="exportProject()">
+                        <span>Export As...</span>
+                        <span class="shortcut">Ctrl+Shift+S</span>
+                        </button></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <button class="dropdown-toggle">View</button>
+                <ul class="dropdown-menu">
+                    <li><button onclick="toggleFullscreen()">
+                        <span>Fullscreen</span>
+                        <span class="shortcut">F11</span>
+                    </button></li>
+                </ul>
+            </li>
+        </div>
+
+        <div id="main">
+            <div id="explorer"></div>
+
+            <div id="workspace">
+                <div id="tabs"></div>
+                <div id="editor"></div>
+            </div>
+        </div>
+
+        <div id="status">
+            <div style="display: flex; flex: 1;width: 100%;">
+                <div class="status-button">
+                    <span class="codicon codicon-remote"></span>
+                </div>
+                <div>
+                    <span class="codicon codicon-error"></span>
+                    <span>0</span>
+                    <span class="codicon codicon-warning"></span>
+                    <span>0</span>
+                </div>
+            </div>
+            <div id="status-right"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@latest/min/vs/loader.js"></script>
+    <script src="https://unpkg.com/typescript@latest/lib/typescript.js"></script>
+</body>
