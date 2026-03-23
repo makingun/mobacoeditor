@@ -1,0 +1,268 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+    max-height: 100%;
+    background: #1e1e1e;
+    color: #ccc;
+    font-family: Segoe UI, sans-serif;
+
+    --explorer-width: 180px;
+}
+
+#app {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+/* =========================
+          TOOLBAR
+========================= */
+
+#toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 32px;
+    background: #181818;
+    border-bottom: 1px solid #434343;
+    padding: 0px;
+}
+
+#toolbar button {
+    background: #181818;
+    border: none;
+    color: #cccccc;
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0px 2px;
+}
+
+#toolbar button:hover {
+    color: #ffffff !important;
+    background: #0078d4 !important;
+}
+
+/* =========================
+        MENU DROPDOWN
+========================= */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 100;
+}
+
+.dropdown-menu {
+    margin: 0;
+    padding: 1px;
+    position: absolute;
+    top: 100%;
+    display: none;
+    background-color: #181818;
+    border-radius: 5px;
+    border: 1px solid #434343;
+    min-width: fit-content;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    padding: 0px;
+    width: calc(100% - 4px);
+    white-space: nowrap;
+}
+
+.dropdown-menu button {
+    width: 100%;
+    padding: 6px 14px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-toggle.open {
+    color: #FFFFFF !important;
+    background: #0078d4 !important;
+}
+
+
+
+#main {
+    position: absolute;
+    top: 32px;      /* toolbar height */
+    bottom: 22px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+#explorer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: var(--explorer-width);
+    background: #181818;
+    overflow: auto;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.node {
+    width: calc(100% - 10px);
+}
+
+#workspace {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--explorer-width);
+    right: 0;
+    overflow: hidden;
+    border-left: 1px solid #434343;
+}
+
+#editor {
+    position: absolute;
+    top: 28px; /* tabs height */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1f1f1f;
+}
+
+#status {
+    position: absolute;
+    top: calc(100% - 22px);
+    left: 0;
+    right: 0;
+    height: 22px;
+    background: #181818;
+    border: 1px solid #434343;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    user-select: none;
+    justify-content: center;
+}
+
+.status-button {
+    background: none;
+    border: none;
+    height: 100%;
+    color: #fff;
+    padding: 0px 8px;
+}
+
+/* =========================
+            TABS
+========================= */
+
+#tabs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+
+    height: 28px;
+    background: #181818;
+    border-bottom: 1px solid #333;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-right: 1px solid #333;
+    gap: 6px;
+    height: 100%;
+    max-width: fit-content;
+    box-sizing: border-box;
+}
+
+.tab.active {
+    background: #1e1e1e;
+    border-top: 2px solid #0078d4;
+    color: #fff;
+}
+
+.tab .close {
+    opacity: 0.6;
+    font-size: 64;
+}
+
+.tab .close:hover {
+    opacity: 1;
+}
+
+/* =========================
+       FILE EXPLORER
+========================= */
+
+.node {
+    padding: 2px 4px;
+    cursor: pointer;
+    height: 18px;
+}
+
+.node span {
+    display: inline-block;
+    border: 1px solid white;
+    margin: 0px;
+}
+
+.node codicon {
+    height: 18px;
+}
+
+.node:hover {
+    background: #2a2a2a;
+}
+
+.folder {
+    font-weight: bold;
+}
+
+.children {
+    padding-left: 12px;
+}
+
+
+/* =========================
+       CONTEXT MENU
+========================= */
+
+.context-menu {
+    position: fixed;
+    background: #252526;
+    border: 1px solid #333;
+    font-size: 12px;
+    z-index: 1000;
+}
+
+.context-menu div {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.context-menu div:hover {
+    background: #094771;
+}
