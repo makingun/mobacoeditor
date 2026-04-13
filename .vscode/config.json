@@ -1,0 +1,8 @@
+{
+    "name": "MonacoRollup",
+    "type": "ts",
+    "entry": "/src/main.js",
+    "extralibs": [
+        "monaco"
+    ]
+}
