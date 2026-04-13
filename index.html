@@ -2,6 +2,31 @@
     <title>Monaco Editor</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@latest/min/vs/loader.js"></script>
+    <script src="https://unpkg.com/typescript@latest/lib/typescript.js"></script>
+    <script>
+        window.onerror = (event, source, lineno, colno, error) => {
+  const errorMessage = `Error: ${error?.message || event}\n
+    
+    Source: ${source}\n
+    Line: ${lineno}\n
+    Column: ${colno}\n
+    Stack: ${error?.stack || 'No stack trace available'}`;
+
+  // You can use a more robust logging mechanism, like displaying it in a UI element
+  alert(errorMessage);
+  console.error(errorMessage); // Fallback to console.error
+};
+
+// Catch unhandled promise rejections
+window.addEventListener('unhandledrejection', (event) => {
+  const errorMessage = `Unhandled Promise Rejection: ${event.reason?.message || event.reason}\n
+    Stack: ${event.reason?.stack || 'No stack trace available'}`;
+
+  alert(errorMessage);
+  console.error(errorMessage);
+});
+    </script>
 </head>
 
 <body>
@@ -59,7 +84,4 @@
             <div id="status-right"></div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@latest/min/vs/loader.js"></script>
-    <script src="https://unpkg.com/typescript@latest/lib/typescript.js"></script>
 </body>
